@@ -1,5 +1,6 @@
 r = int(input("Enter number"))
 
+
 listr = list(range(1,r+1))
 
 
