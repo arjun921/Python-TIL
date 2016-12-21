@@ -1,12 +1,9 @@
 n = int(input('Fibonacci till :'))
-
-i = 0
-j = 1
-temp = 0
-#print(i)
-#print(j)
-for i in range(1,n):
-	temp = i + j
-	i = j
-	j = temp
-	print (temp)
+a,b = 1,1
+for i in range(n-1):
+	#a,b = b,a+b
+	#vs
+	#a = b
+	#b = a+b
+	a,b = b,a+b
+	print (a)
