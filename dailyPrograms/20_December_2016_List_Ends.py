@@ -8,7 +8,6 @@ def getList():
 def firstLast(MyList):
 	newList = []
 	newList.append(MyList[0])
-	print(len(MyList))
 	newList.append(MyList[(len(MyList)-1)])
 	return newList
 
