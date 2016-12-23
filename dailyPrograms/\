@@ -1,6 +1,0 @@
-n = int(input('Fibonacci till :'))
-temp = 0
-for i in range(0,n):
-	print (temp)
-	temp = i+temp
-	#print (temp)

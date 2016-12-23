@@ -27,20 +27,25 @@ def playGame():
 	inputs = ["R","P","S"]
 
 	#checks if inputs are valid
-	if userA in inputs and userB in inputs:
-		#game logic begins
-		print("Results\n" + "="*90 + "\n{} Entered {}".format(pNameA,userA) + "\n{} Entered {}\n".format(pNameB,userB))
-		if userA == "R":
-			print("{} wins".format(pNameA) if userB=='S' else "{} Wins".format(pNameB))
-		if userA == "P":
-			print("{} Wins".format(pNameA) if userB=='R' else "{} Wins".format(pNameB))
-		if userA == "S":
-			print("{} Wins".format(pNameA) if userB=='P' else "{} Wins".format(pNameB))
-	else:
-		print ("Invalid inputs")
-	return
+	if userA==userB:
+		print("Match Draw")
+	else:	
+		if userA in inputs and userB in inputs:
+			#game logic begins
+			print("Results\n" + "="*90 + "\n{} Entered {}".format(pNameA,userA) + "\n{} Entered {}\n".format(pNameB,userB))
+			if userA == "R":
+				print("{} wins".format(pNameA) if userB=='S' else "{} Wins".format(pNameB))
+			if userA == "P":
+				print("{} Wins".format(pNameA) if userB=='R' else "{} Wins".format(pNameB))
+			if userA == "S":
+				print("{} Wins".format(pNameA) if userB=='P' else "{} Wins".format(pNameB))
+		else:
+			print ("Invalid inputs")
+		return
+
 playAgain = "Y"
 yes = ["Y","y"]
+
 while(playAgain in yes):
 	playGame()
 	playAgain = input("="*90+"\nWould you like to play again?\n Enter Y or N\n")
