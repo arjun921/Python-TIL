@@ -9,7 +9,7 @@ def storePrime():
 				prime = False
 		if prime:
 			#print(num)
-			file_open_prime.write(str(num))
+			file_open_prime.write(str(num) + ", ")
 	return
 
 storePrime()
