@@ -34,3 +34,5 @@ if len(kevin)>len(stuart):
 	print ('Kevin {}'.format(len(kevin)))
 elif len(stuart)>len(kevin):
 	print ('Stuart {}'.format(len(stuart)))
+else:
+	print ('Draw')
