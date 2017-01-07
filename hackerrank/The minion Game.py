@@ -3,15 +3,12 @@ s = s.upper()
 lens = len(s)
 consonants = set()
 vowels = set()
-unique = []
-substrings = []
-stuart = []
-kevin = []
 kevintot,stuarttot = 0,0
+
 """Consonants in s to list"""
 for x in s:
 	if x not in 'AEIOU':
-                consonants.add(x)
+		consonants.add(x)
 """Vowels in s to set"""
 for x in s:
 	if x in 'AEIOU':
