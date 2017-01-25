@@ -1,8 +1,8 @@
 def is_member():
 	lis = []
-	n = int(input('Enter Number of members for club:'))
+	n = int(input('Enter Number of elements in list:'))
 	for x in range(n):
-		lis.append(input('Enter Member of list:'))
+		lis.append(input('Enter Members of list:'))
 
 	print('Members of the club:')
 	print(lis)
