@@ -1,0 +1,216 @@
+Last login: Fri Jan 27 22:31:14 on console
+ /$$      /$$           /$$                                                            
+| $$  /$ | $$          | $$                                                            
+| $$ /$$$| $$  /$$$$$$ | $$  /$$$$$$$  /$$$$$$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$       
+| $$/$$ $$ $$ /$$__  $$| $$ /$$_____/ /$$_____/ /$$__  $$| $$_  $$_  $$ /$$__  $$      
+| $$$$_  $$$$| $$$$$$$$| $$| $$      | $$      | $$  \ $$| $$ \ $$ \ $$| $$$$$$$$      
+| $$$/ \  $$$| $$_____/| $$| $$      | $$      | $$  | $$| $$ | $$ | $$| $$_____/      
+| $$/   \  $$|  $$$$$$$| $$|  $$$$$$$|  $$$$$$$|  $$$$$$/| $$ | $$ | $$|  $$$$$$$      
+|__/     \__/ \_______/|__/ \_______/ \_______/ \______/ |__/ |__/ |__/ \_______/      
+                                                                                       
+                                                                                       
+                                                                                       
+  /$$$$$$                                           /$$$$$$                            
+ /$$__  $$                                         /$$__  $$                           
+| $$  \ $$  /$$$$$$  /$$ /$$   /$$ /$$$$$$$       | $$  \__/                           
+| $$$$$$$$ /$$__  $$|__/| $$  | $$| $$__  $$      |  $$$$$$                            
+| $$__  $$| $$  \__/ /$$| $$  | $$| $$  \ $$       \____  $$                           
+| $$  | $$| $$      | $$| $$  | $$| $$  | $$       /$$  \ $$                           
+| $$  | $$| $$      | $$|  $$$$$$/| $$  | $$      |  $$$$$$/                           
+|__/  |__/|__/      | $$ \______/ |__/  |__/       \______/                            
+               /$$  | $$                                                               
+              |  $$$$$$/                                                               
+               \______/                                                                
+
+Arjuns-MacBook-Pro:~ arjuns$ py
+Python 3.5.2 |Anaconda 4.2.0 (x86_64)| (default, Jul  2 2016, 17:52:12) 
+[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> s = 'udacity'
+>>> t = 'bodacious'
+>>> """print udacious"""
+'print udacious'
+>>> s[0:5]
+'udaci'
+>>> s[0:4]
+'udac'
+>>> t[5:]
+'ious'
+>>> s[0:4]+t[5:]
+'udacious'
+>>> text = "first hoo"
+>>> text.find("hoo")
+6
+>>> text = "all zip files are zipped" 
+>>> text.find("zip")
+4
+>>> s[text.find("zip")].find("zip")
+-1
+>>> s[text.find("zip")]
+'i'
+>>> s[text.find("zip"):]
+'ity'
+>>> text[text.find("zip"):]
+'zip files are zipped'
+>>> text[text.find("zip")+1:].find("zip")
+13
+>>> text = 'Zip is a file format used for data compression and archiving. A zip file contains one or more files that have been compressed, to reduce file size, or stored as is. The zip file format permits a number of compression algorithms.'
+>>> text[lower(text).find("zip")+1:].find("zip")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lower' is not defined
+>>> text[text.lower(text).find("zip")+1:].find("zip")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: lower() takes no arguments (1 given)
+>>> text[text.lower().find("zip")+1:].find("zip")
+63
+>>> text[text.lower().find("zip")+1:]
+'ip is a file format used for data compression and archiving. A zip file contains one or more files that have been compressed, to reduce file size, or stored as is. The zip file format permits a number of compression algorithms.'
+>>> text.lower().find("zip")
+0
+>>> text[text.find("zip")+1:].find("zip")
+104
+>>> text.lower()
+'zip is a file format used for data compression and archiving. a zip file contains one or more files that have been compressed, to reduce file size, or stored as is. the zip file format permits a number of compression algorithms.'
+>>> text.lower().find('zip')
+0
+>>> text[text.lower().find('zip')+1:]
+'ip is a file format used for data compression and archiving. A zip file contains one or more files that have been compressed, to reduce file size, or stored as is. The zip file format permits a number of compression algorithms.'
+>>> text[text.lower().find('zip')+1:].lower().find('zip')
+63
+>>> text.find('zip')
+64
+>>> text.find('zip',text.lower().find('zip'))
+64
+>>> text.find('zip',text.lower().find('zip')+1)
+64
+>>> 
+>>> x = 3.14159
+>>> x.round
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'float' object has no attribute 'round'
+>>> x.round()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'float' object has no attribute 'round'
+>>> str(x).round()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'round'
+>>> round(x)
+3
+>>> round(x:2)
+  File "<stdin>", line 1
+    round(x:2)
+           ^
+SyntaxError: invalid syntax
+>>> round(x,2)
+3.14
+>>> print (round(x))
+3
+>>> round(str(x))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: type str doesn't define __round__ method
+>>> round(x)
+3
+>>> ^C
+KeyboardInterrupt
+>>> 
+Arjuns-MacBook-Pro:~ arjuns$ py2
+Python 2.6.9 (unknown, Jul 30 2016, 19:40:24) 
+[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 383.89327
+>>> round(x)
+384.0
+>>> print str(x)[0:str(round(x)).find('.')]
+383
+>>> round(x)
+384.0
+>>> str(round(x))
+'384.0'
+>>> y = str(roundx())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'roundx' is not defined
+>>> y = str(round(x))
+>>> y
+'384.0'
+>>> y[0:]
+'384.0'
+>>> y[0:y.find('.')]
+'384'
+>>> print (y[0:y.find('.')])
+384
+>>> s = apple
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'apple' is not defined
+>>> s = 'apple'
+>>> s[-1]
+'e'
+>>> s[-1:]
+'e'
+>>> s='CidatyUcityda'
+>>> s[:2]
+'Ci'
+>>> marker = "AFK"
+>>> replacement = "away from keyboard"
+>>> line = "I will now go to sleep and be AFK until lunch time tomorrow."
+>>> line.find(marker)
+30
+>>> line[:line.find(marker)]
+'I will now go to sleep and be '
+>>> line[line.find(marker):]
+'AFK until lunch time tomorrow.'
+>>> line[line[line.find(marker):]+1:]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: cannot concatenate 'str' and 'int' objects
+>>> line[line.find(marker):]
+'AFK until lunch time tomorrow.'
+>>> line[line.find(marker)+1:]
+'FK until lunch time tomorrow.'
+>>> line[:line.find(marker)]
+'I will now go to sleep and be '
+>>> begin = line[:line.find(marker)]
+>>> begin + replacement
+'I will now go to sleep and be away from keyboard'
+>>> line.find(marker)
+30
+>>> line[line.find(marker)]
+'A'
+>>> line[:line.find(marker)]
+'I will now go to sleep and be '
+>>> line[line.find(marker):]
+'AFK until lunch time tomorrow.'
+>>> line[line.find(marker)+1:]
+'FK until lunch time tomorrow.'
+>>> line[line.find(marker)+len(marker):]
+' until lunch time tomorrow.'
+>>> line[line.find(marker)+len(marker)+1:]
+'until lunch time tomorrow.'
+>>> end = line[line.find(marker)+len(marker):]
+>>> begin + replacement+end
+'I will now go to sleep and be away from keyboard until lunch time tomorrow.'
+>>> print 10/4.0
+2.5
+>>> print 10/5
+2
+>>> print 10*1.0/4
+2.5
+>>> print 10/4
+2
+>>> print 10.0/5
+2.0
+>>> 10/50
+0
+>>> 10/50.0
+0.20000000000000001
+>>> 
+KeyboardInterrupt
+>>> ^D
+Arjuns-MacBook-Pro:~ arjuns$ 
