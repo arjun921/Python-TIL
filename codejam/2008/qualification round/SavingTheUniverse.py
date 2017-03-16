@@ -2,11 +2,12 @@ def CentralQueryProcessingSystem(engines,queries):
 	swap = 0
 	notEqual = True
 	while notEqual:
-		temp = 0
-		for q in range(1,len(queries)):
-			if queries[q]==engines[temp]:
-				swap+=1
-				temp+=1
+		q=0
+		e=-1
+		if queries[q]==engines[e]:
+			swap+=1
+			q+=1
+			e-=1
 		notEqual = False
 	return swap
 
@@ -15,14 +16,17 @@ N = int(input())
 for x in range(1,N+1):
 	# Number of search engines
 	S = int(input())
-	engines = []
-	for y in range(1,S+1):
-		engines.append(input())
+	engines = set()
+	queries = []
+	for y in range(0,S):
+		engines.add(input())
 	#number of queries
 	Q = int(input())
-	queries = []
-	for z in range(1,Q+1):
+	for z in range(0,Q):
 		queries.append(input())
-	print('')
+	# print('')
+	# engines.sort()
+	queries.sort(reverse=True)
 	swap = CentralQueryProcessingSystem(engines,queries)
-	print('Case #{}: {}'.format(x,swap))
+	
+	print('\nCase #{}: {}'.format(x,swap))
