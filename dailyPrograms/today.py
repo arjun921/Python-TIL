@@ -6,8 +6,12 @@ yy = str(dt.now().year)
 mm = str(dt.now().month)
 dd = str(dt.now().day)
 a = yy+mm+dd
-# print(a)
-workingDir_root = Path('/Users/arjun921/working_directory/refactored-lamp/dailyPrograms/')
+
+work_env = input('Where are you working?\n\tw: for office(ubuntu)\n\th: for home(mac)\n')
+if work_env == 'w':
+    workingDir_root = Path('/home/alien/working_directory/refactored-lamp/dailyPrograms/')
+elif work_env == 'h':
+    workingDir_root = Path('/home/arjun921/working_directory/refactored-lamp/dailyPrograms/')
 
 if not os.path.exists(workingDir_root / yy):
     os.makedirs(workingDir_root / yy)
@@ -17,6 +21,6 @@ if not os.path.exists(workingDir_root / yy / mm / dd):
     os.makedirs(workingDir_root / yy / mm / dd)
 
 
-os.system('cd {} && atom {}.py'.format(workingDir_root / yy / mm / dd,a))
+os.system('cd {} && code {}.py'.format(workingDir_root / yy / mm / dd,a))
 a = str(workingDir_root / yy / mm / dd )
 print(a + "/")
