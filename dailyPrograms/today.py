@@ -9,9 +9,9 @@ a = yy+mm+dd
 
 work_env = input('Where are you working?\n\tw: for office(ubuntu)\n\th: for home(mac)\n')
 if work_env == 'w':
-    workingDir_root = Path('/home/alien/working_directory/refactored-lamp/dailyPrograms/')
+    workingDir_root = Path('/home/alien/working_directory/refactored-lamp/algorithms/')
 elif work_env == 'h':
-    workingDir_root = Path('/home/arjun921/working_directory/refactored-lamp/dailyPrograms/')
+    workingDir_root = Path('/home/arjun921/working_directory/refactored-lamp/algorithms/')
 
 if not os.path.exists(workingDir_root / yy):
     os.makedirs(workingDir_root / yy)
