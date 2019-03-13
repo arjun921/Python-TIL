@@ -12,7 +12,7 @@ work_env = 'w'
 if work_env == 'w':
     workingDir_root = Path('/home/alien/working_directory/refactored-lamp/algorithms/')
 elif work_env == 'h':
-    workingDir_root = Path('/home/arjun921/working_directory/refactored-lamp/algorithms/')
+    workingDir_root = Path('/Users/arjun921/working_directory/refactored-lamp/algorithms/')
 
 if not os.path.exists(workingDir_root / yy):
     os.makedirs(workingDir_root / yy)
