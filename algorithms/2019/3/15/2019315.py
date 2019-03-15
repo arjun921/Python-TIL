@@ -79,6 +79,14 @@ skip2 jump
 jump = 4
 passed append 4+1=5
 passed append 4+2=6
+----------------------------
+iter 6 === 0
+skip2 = 0
+skip1 = 1
 
+skip2 jump
+jump = 4
+passed append 4+1=5
+passed append 4+2=6
 
 """
