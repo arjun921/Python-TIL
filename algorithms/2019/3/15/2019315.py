@@ -22,25 +22,22 @@ while in steps range
             passed append skip1
             jump
             pass
-    
-
-    
 return jump
 
 in - 0 0 1 0 0 1 0
 ind- 0 1 2 3 4 5 6
 
 passed - 0 0 1 0 0 1 0
-passed - 0 1 2 3 4 5 6
+passed - 0
 
 ----------------------------
 iter 0 === 0
-skip2 = 1
-skip1 = 0
+skip2 = 1(2)
+skip1 = 0(1)
 
 skip1 jump
 jump = 1
-passed append 1
+passed append skip1(1)
 ----------------------------
 iter 1 === 0
 skip2 = 0
