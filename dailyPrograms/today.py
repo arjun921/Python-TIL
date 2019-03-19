@@ -7,8 +7,7 @@ mm = str(dt.now().month)
 dd = str(dt.now().day)
 a = yy+mm+dd
 
-# work_env = input('Where are you working?\n\tw: for office(ubuntu)\n\th: for home(mac)\n')
-work_env = 'w'
+work_env = input('Where are you working?\n\tw: for office(ubuntu)\n\th: for home(mac)\n')
 if work_env == 'w':
     workingDir_root = Path('/home/alien/working_directory/refactored-lamp/algorithms/')
 elif work_env == 'h':
