@@ -27,3 +27,5 @@ print(a + "/")
 # Opens unsolved algorithms page from hackerrank
 #os.system('google-chrome https://www.hackerrank.com/domains/algorithms?filters%5Bdifficulty%5D%5B%5D=medium&filters%5Bdifficulty%5D%5B%5D=hard')
 os.system('google-chrome https://www.hackerrank.com/interview/interview-preparation-kit')
+print('https://www.hackerrank.com/interview/interview-preparation-kit')
+
