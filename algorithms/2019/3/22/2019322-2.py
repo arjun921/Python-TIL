@@ -9,12 +9,25 @@ import sys
 
 # Complete the arrayManipulation function below.
 def arrayManipulation(n, queries):
+    array = [0]*n
     for q in queries:
-        print(q)
-    # for x in 
-    return n
+        x, y, incr = q[0],q[1],q[2]
+        array[x-1] += incr
+        # if((y)<=len(array)-1): array[y] -= incr
+    print(array)
+    return max(array)
 
 if __name__ == '__main__':
+    fopen = open('in_large-prob2.txt','r')
+    txt = fopen.read()
+    fopen.close()
+    txt = txt.split('\n')
+    large_nm = list(map(int,txt[0].split()))
+    large_queries = []
+
+    for _ in txt[1:]:
+        large_queries.append(list(map(int,_.split())))
+
     tests = {
         'case1': {
             'nm': [4,3],
@@ -35,7 +48,12 @@ if __name__ == '__main__':
             'nm': [10,3],
             'queries': [[1,5,3],[4,8,7],[6,9,1]],
             'expected': 10
-        }
+        },
+        # 'case5': {
+        #     'nm': large_nm,
+        #     'queries': large_queries,
+        #     'expected': 2497169732
+        # }
     }
 
     # nm = input().split()
@@ -52,7 +70,7 @@ if __name__ == '__main__':
     # queries = [[2,6,8],[3,5,7],[1,8,1],[5,9,15]]
 
     for test in tests.items():
-        print(test)
+        print(test[0])
         nm = test[1]['nm']
         n = nm[0]
         m = nm[1]
@@ -62,6 +80,7 @@ if __name__ == '__main__':
         if result == expected:
             print('Test passed')
         else:
+            print(test)
             print('Test failed')
         print('-'*10)
 
