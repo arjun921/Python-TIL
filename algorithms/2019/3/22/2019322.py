@@ -1,42 +1,53 @@
-# https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrayss
 #!/bin/python3
-# discussions
-
+# https://www.hackerrank.com/challenges/minimum-swaps-2/submissions/code/102685145?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+# Timeout
 import math
 import os
 import random
 import re
 import sys
 
-# Complete the minimumBribes function below.
-def minimumBribes(Q):
-    moves = 0 
-    Q = [P-1 for P in Q]
-    for i,P in enumerate(Q):
-        if P - i > 2:
-            print("Too chaotic")
-            return
-        for j in range(max(P-1,0),i):
-            if Q[j] > P:
-                moves += 1
-    print(moves)
+# Complete the minimumSwaps function below.
+def minimumSwaps(arr):
+    start = 0
+    end = len(arr)-1
+    swaps = 0
+    print(arr)
+    while start<end:
+        print(start,end)
+        while arr[start] == start+1 and start<end:
+            start+=1
+        if start<end:
+            # PSA: start and end are indexes. not start/end elements
+            # store value that should be at 'start'.
+            temp = arr[arr[start]-1]
+            # swap value of 'start' at index where 'start' element found
+            arr[arr[start]-1] = arr[start]
+            #stores value at 'start' from temp
+            arr[start] = temp
+            swaps += 1
+            print(arr)
+    return swaps
 
 if __name__ == '__main__':
-    # t = 1
+    cases = {
+        'case0': [4,[4,3,1,2],3],
+        # 'case1': [5,[2,3,4,1,5],3],
+        # 'case2': [7,[1,3,5,2,4,6,7],3]
+    }
+    for x in cases.items():
+        print(f'Test case: {x[0]}')
+        n = x[1][0]
+        arr = x[1][1]
+        y = x[1][2]
 
-    # for t_itr in range(t):
-    #     # n = int(input())
+        # n = int(input())
+        # s = input()
+        res = minimumSwaps(arr)
+        if y == res:
+            print('Passed.')
+        else:
+            print('Test Failed')
+            print(f'Expected: {y}, Got: {res}')
+        print('-'*10)
 
-    #     # q = list(map(int, input().rstrip().split()))
-    #     n = 5
-    #     q = [2,1,5,3,4]
-
-    #     minimumBribes(q)
-    t = int(input())
-
-    for t_itr in range(t):
-        n = int(input())
-
-        q = list(map(int, input().rstrip().split()))
-
-        minimumBribes(q)
