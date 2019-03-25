@@ -10,23 +10,19 @@ import sys
 
 # Complete the dynamicArray function below.
 def dynamicArray(n, queries):
-    seqList =  [[x for x in range(n)] for i in range(n)]
+    seqList =  [[] for i in range(n)]
     lastAnswer = 0
-    for query in queries:
-        print(query)
-        query_type = query[0]
-        x = query[1]
-        y = query[2]
+    lastAnswers = []
+    for query_type,x,y in queries:
+        ind = (x ^ lastAnswer)%n
+        seq = seqList[ind]
         if query_type == 1:
-            ind = ((bool(x) ^ bool(lastAnswer))%n)
-            seq = seqList[ind]
             seq.append(y)
         elif query_type == 2:
-            ind = ((bool(x) ^ bool(lastAnswer))%n)
-            seq = seqList[ind]x
-            lastAnswer = seq[int(y%len(seq))]
-            print(lastAnswer)
-    return lastAnswer
+            number = y%len(seq)
+            lastAnswer = seq[number]
+            lastAnswers.append(lastAnswer)
+    return lastAnswers
 
 if __name__ == '__main__':
 
@@ -42,6 +38,6 @@ if __name__ == '__main__':
         queries.append(list(map(int, input().rstrip().split())))
 
     result = dynamicArray(n, queries)
-
+    print('\n'.join(map(str,result)))
 
 

@@ -10,7 +10,6 @@ import sys
 # Complete the solve function below.
 def solve(s):
     temp = s[0].capitalize()
-    print(s[1:])
     s = s[1:]
     for i,c in enumerate(s):
         if str(s[i-1]) == ' ':
