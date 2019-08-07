@@ -1,7 +1,7 @@
 
 def debugattrs(cls):
     
-    # modifying set builtin function
+    # modifying get builtin function
     orig_getattr = cls.__getattribute__
     def __getattribute__(self, name):
         """creating new __get attribute function"""
@@ -17,6 +17,7 @@ def debugattrs(cls):
         print('Set:', name, value)
         return orig_setattr(self,name, value)
 
+    # assigning modified function
     cls.__setattr__ = __setattr__
 
     return cls
