@@ -42,6 +42,12 @@ class Float(CheckType):
 class String(CheckType):
     _type = str
 
+class Postive(Descriptor):
+    def __set__(self, instance, value):
+        if value < 0:
+            raise ValueError('Value must be >= 0')
+        super().__set__(instance, value)
+
 def make_signature(names):
     # Enforces args, kwargs and enforces checks like duplicated, enough arguments passed, etc. 
     return Signature(Parameter(name,Parameter.POSITIONAL_OR_KEYWORD) for name in names)
@@ -63,10 +69,9 @@ class Structure(metaclass=StructMeta):
 
 class Stock(Structure):
     _fields = ['name', 'shares', 'price']
-
-    name = Descriptor('name')  
-    shares = Descriptor('shares')  
-    price = Descriptor('price')
+    name = String('name')  
+    shares = Integer('shares')  
+    price = Float('price')
 
 class Point(Structure):
     _fields = ['x','y']
