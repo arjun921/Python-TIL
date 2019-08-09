@@ -1,3 +1,4 @@
+# Adding Type checking while setting parameters in an instance
 from inspect import Parameter, Signature
 
 class Descriptor: 
@@ -24,6 +25,22 @@ class Descriptor:
     def __delete__(self, instance):
         print("Delete: ", self.name)
         del instance.__dict__[self.name]
+
+class CheckType(Descriptor):
+    _type = object      # expected type
+    def __set__(self, instance, value):
+        if not isinstance(value, self._type):
+            raise TypeError(f"Expected {self._type}")
+        super().__set__(instance, value)
+
+class Integer(CheckType):
+    _type = int
+
+class Float(CheckType):
+    _type = float
+
+class String(CheckType):
+    _type = str
 
 def make_signature(names):
     # Enforces args, kwargs and enforces checks like duplicated, enough arguments passed, etc. 
