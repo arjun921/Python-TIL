@@ -1,4 +1,6 @@
 # Adding Type checking while setting parameters in an instance
+# Multiple inheritence 
+
 from inspect import Parameter, Signature
 
 class Descriptor: 
@@ -42,11 +44,17 @@ class Float(CheckType):
 class String(CheckType):
     _type = str
 
-class Postive(Descriptor):
+class Positive(Descriptor):
     def __set__(self, instance, value):
         if value < 0:
             raise ValueError('Value must be >= 0')
         super().__set__(instance, value)
+
+class PositiveInteger(Integer, Positive):
+    pass
+
+class PositiveFloat(Float, Positive):
+    pass
 
 def make_signature(names):
     # Enforces args, kwargs and enforces checks like duplicated, enough arguments passed, etc. 
@@ -70,8 +78,8 @@ class Structure(metaclass=StructMeta):
 class Stock(Structure):
     _fields = ['name', 'shares', 'price']
     name = String('name')  
-    shares = Integer('shares')  
-    price = Float('price')
+    shares = PositiveInteger('shares')  
+    price = PositiveFloat('price')
 
 class Point(Structure):
     _fields = ['x','y']
@@ -79,3 +87,7 @@ class Point(Structure):
 class Address(Structure):
     _fields = ['hostname','port']
 
+
+
+## NOTES
+# Class.__mro__  --  shows the method resolution order, or order in which multiple inheritence was done.
