@@ -15,5 +15,4 @@ def largestRange(array):
 			start = end
 	range_candidates.append([original_start,end])
 	diff_ranges = [x[1]-x[0] for x in range_candidates]
-	
 	return range_candidates[diff_ranges.index(max(diff_ranges))]
