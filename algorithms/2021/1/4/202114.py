@@ -9,7 +9,7 @@ def binarySearch(array, target):
 		if target==potential_match:
 			return middle
 		elif target<potential_match:
-			end = middle -1
+			end = middle - 1
 		else:
 			start = middle + 1
 	return -1
